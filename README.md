@@ -5,8 +5,8 @@
 0. Create user account
 
     ```
-    $ useradd -m -s /bin/bash lug00
-    $ passwd lug00
+    $ sudo useradd -m -s /bin/bash lug00
+    $ sudo passwd lug00
     ```
 
 1. Scrunch `GUIDE`
@@ -18,11 +18,11 @@
 2. Copy `GUIDE.SCRUNCHED` to home directory
 
     ```
-    $ cp GUIDE.SCRUNCHED ~lug00/GUIDE
+    $ sudo cp GUIDE.SCRUNCHED ~lug00/GUIDE
     ```
 
 3. Append to ~/.bashrc
 
     ```
-    $ echo sh ~/GUIDE >> ~lug00/.bashrc
+    $ echo sh ~/GUIDE | sudo tee -a ~lug00/.bashrc
     ```
