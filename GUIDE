@@ -1,0 +1,373 @@
+#!/bin/sh
+
+CLA_VERSION=2019-10-01
+CLA_ARCHIVE=CLA-$CLA_VERSION.tar.gz
+
+guide_say() {
+    cowsay -f tux -W 74
+}
+
+# Challenges
+
+challenge_00() {
+    clear
+    cat <<EOF
+# Welcome to LUG's Command Line Adventure ($CLA_VERSION).
+
+In this journey through the *Linux command line interface*, you will work
+through a series of challenges that require you to utilize a few of common
+command line utilities such as:
+
+    cat, chmod, cp, curl, cut, du, find, gcc, grep, head, kill, ls, md5sum,
+    nano, ping, ps, rm, scp, sort, tail, tar, tr, vim, wget
+
+To help you along this journey is a *GUIDE*, who will give you hints along the
+way.
+
+# Challenge 00
+
+Your first challenge is to activate the *GUIDE* by giving it _permission_ to
+_execute_ and then running the *GUIDE*.
+
+EOF
+}
+
+challenge_01() {
+    guide_say <<EOF
+Hello, ${USER}!  
+
+I am your *GUIDE* and will help you on the rest of your journey.  I see that
+you have discovered the *chmod* command and have made me executable.  
+
+Whenever you have completed a challenge, just run me again and I will guide you
+to the next step in your journal.
+
+# Challenge 01
+
+For your next step, you will need to *copy* the $CLA_ARCHIVE file in the
+/var/tmp/ directory to your HOME folder.
+
+Remember that you can always use the manual pages to lookup how to use a
+particular command (ex. man chmod)
+EOF
+}
+
+challenge_02() {
+    guide_say <<EOF
+Great job, ${USER}!
+
+It looks like you *copied* the $CLA_ARCHIVE from /var/tmp to your $HOME folder
+using the *cp* command.
+
+# Challenge 02
+
+The file you copied is called a *tarball* and is similar to a *zip* file found
+on Windows or macOS.  Your next challenge is to *extract* the contents of
+$CLA_ARCHIVE.
+EOF
+}
+
+challenge_03() {
+    guide_say <<EOF
+Nice, ${USER}!
+
+You used the *tar* command to extract the contents of $CLA_ARCHIVE in order to
+produce the ${CLA_ARCHIVE%%.*} folder.  
+
+If you examine the contents of the folder, you will discover that it contains
+the *source code* for the Linux kernel.  Because Linux is *open source*, users
+are free to download its source code, modify it, and share their changes with
+others.
+
+# Challenge 03
+
+For the next step, you will need to *rename* the ${CLA_ARCHIVE%%.*} folder to
+just "linux".
+EOF
+}
+
+challenge_04() {
+    guide_say <<EOF
+Sweet *move*, ${USER} :}
+
+You used the *mv* or *rename* command to change the ${CLA_ARCHIVE%%.*} folder's
+name to "linux" to reflect its contents.
+
+# Challenge 04
+
+Now that we have the "linux" folder we no longer need the ${CLA_ARCHIVE} file,
+so let's *remove* it before we continue to the next challenge.
+
+EOF
+}
+
+challenge_05() {
+    guide_say <<EOF
+Be careful, ${USER}!!!
+
+The *rm* command permanently deletes files (there is no trash can), so use it
+with caution.
+
+# Challenge 05
+
+Now that things are tidier, let's *create* an *empty file* called LOG in your
+HOME folder.
+
+EOF
+}
+
+challenge_06() {
+    guide_say <<EOF
+${USER}, I find your persistence so *touching* :]
+
+Now that you how to create a file, you will probably also want to learn how to
+*edit* it.  That is, you will want to use a *text editor* to modify the
+contents of the file.
+
+# Challenge 06
+
+Choosing one of the following text editors:
+
+    1. nano: Perfect for novices
+    2. vim: Great for power users
+    3. emacs: Amazing for curious users
+
+Enter the name of your account (ie. ${USER}) on the *first* line of the LOG file.
+EOF
+}
+
+challenge_07() {
+    guide_say <<EOF
+Awesome, ${USER}!
+
+Now that you can edit text files, let's gather some information and add it to
+our LOG file.
+
+# Challenge 07
+
+Enter the *size* of the COPYING file in the linux directory on the *second*
+line of the LOG file.
+
+EOF
+}
+
+challenge_08() {
+    guide_say <<EOF
+Amazing, ${USER}!
+
+Let's keep exploring the "linux" folder and adding information to our LOG file.
+
+# Challenge 08
+
+Enter the *disk usage* of the "linux/drivers" folder on the *third* line of the
+LOG file.  Be sure to use *human-readable* format for the total amount of space
+used.
+
+EOF
+}
+
+challenge_09() {
+    guide_say <<EOF
+Super job, ${USER}!
+
+Let's start examining and manipulating the contents of some files through the
+user of some common Linux filters.
+
+# Challenge 09
+
+For this challenge, you are to search the "linux/maintainers" file for all the
+contributors to Linux that work at "microsoft".  Once you have found them all,
+*count* up all the "@microsoft.com" email addresses and put the *number* on the
+*fourth* line of the LOG file.
+
+EOF
+}
+
+challenge_10() {
+    guide_say <<EOF
+Excellent, ${USER}!
+
+You are getting pretty good at figuring out Linux commands.  One powerful
+feature of the Linux shell is that you can combine commands together via a
+*pipeline*.  For instance, instead of counting all the lines with "microsoft"
+in the "linux/MAINTAINERS" file manually, you could count all the lines with
+the *wc* command:
+
+    grep microsoft linux/MAINTAINERS | wc -l
+
+This takes the output of *grep* and sends it *wc*, which will output the number
+of lines it counts.
+
+# Challenge 10
+
+For the next challenge, you are to *search* all the files inside the "linux"
+folder for any *filenames* that contain "lug".  Enter the *count* or number of
+times you see "lug" on the *fifth* line of the LOG file.
+
+Note: only the *name* of the file should contain "lug", not the whole path.
+EOF
+}
+
+challenge_11() {
+    guide_say <<EOF
+Brilliant, ${USER}!
+
+Now let's try something a little bit trickier...
+
+# Challenge 11
+
+For this challenge, you are to *sort* all the C files in "linux/kernel" by file
+size and then record the *name* of the file with the *largest size* on the
+*sixth* line of the LOG file.
+
+Note: record just the name of the file.
+
+EOF
+}
+
+challenge_12() {
+    guide_say <<EOF
+Wow, ${USER}!
+
+You are doing fantastic.  Hopefully, you are noticing the power of the Unix
+Philosophy:
+
+1. Write programs that do one thing and do it well.
+
+2. Write programs to work together.
+
+3. Write programs to handle text streams, because that is a universal interface.
+
+# Challenge 12
+
+For the next challenge, you are to *search* and *replace* all instances of
+"Linux" in the "linux/CREDITS" file with "Unix" and then record the *MD5*
+checksum of the new file to the *seventh* line of the LOG file.
+EOF
+}
+
+challenge_13() {
+    guide_say <<EOF
+Way to go ${USER}!
+
+We will now do some exploring of the network and computer system.
+
+# Challenge 13
+
+For the next challenge, you are to record the *IP address* of the local
+machine.  Since there will be more than one, you are to use the address of the
+"enp0s25" network device and record it on the *eighth* line of the LOG file.
+EOF
+}
+
+challenge_14() {
+    guide_say <<EOF
+Cool beans, ${USER}!
+
+Every machine on the network has an *IP address*.  Normally, however, we use
+domain names to refer to machines...
+
+# Challenge 14
+
+For this challenge, you are to record the *IP address* of "nd.edu" on the
+*ninth* line of the LOG file.
+
+EOF
+}
+
+challenge_15() {
+    guide_say <<EOF
+Bravo, ${USER}!
+
+# Challenge 15
+
+For this challenge, you are to determine the number of CPU cores on the current
+machine and record it on the *tenth* line of the LOG file.
+EOF
+}
+
+challenge_16() {
+    guide_say <<EOF
+You did it, ${USER}!
+
+A typical Linux file system is actually composed of multiple partitions, which
+you can view using the *df* command.  The main partition is the "/" or "root"
+partition, but there are usually a few other ones as well.  You can think of a
+partition as a "drive" on Windows.
+
+# Challenge 16
+
+Now, you are to display all the *partitions* on the local filesystem and record
+the size of the "/home" partition on the *eleventh* line of the LOG file.
+
+Note: record the size in human-readable form.
+
+EOF
+}
+
+challenge_17() {
+    guide_say <<EOF
+Whoa, ${USER}!
+
+## Challenge 17
+
+We are almost done... now you are to use a Linux command to download the
+following file to your HOME directory:
+    
+    https://yld.me/raw/CLA-${CLA_VERSION}.c
+EOF
+}
+
+challenge_18() {
+    guide_say <<EOF
+Great show, ${USER}!
+
+Sadly, we are now at the end of your adventure.
+
+## Challenge 18
+
+For this last challenge, you are to do the following:
+
+1. Compile the CLA-${CLA_VERSION}.c into an executable.
+
+2. Run the executable... there will be a surprise for you.
+
+3. Figure out a way to terminate the mischievous background process.
+
+4. Enjoy!
+
+EOF
+}
+
+# Main Execution
+
+## Determine Which Challenge
+
+CHALLENGE=00
+
+[ -x $0 ] && CHALLENGE=01
+[ -r $CLA_ARCHIVE ] && CHALLENGE=02
+[ -d ${CLA_ARCHIVE%%.*} ] && CHALLENGE=03
+if [ -d linux ]; then
+    CHALLENGE=04
+    [ ! -r $CLA_ARCHIVE ] && CHALLENGE=05
+    if [ -e LOG ]; then
+    	CHALLENGE=06
+	[ "$(sed -n 1p LOG)" = $USER ] && CHALLENGE=07
+	[ "$(sed -n 2p LOG)" = "423" ] && CHALLENGE=08
+	[ "$(sed -n 3p LOG)" = "534M" ] && CHALLENGE=09
+	[ "$(sed -n 4p LOG)" = "5" ] && CHALLENGE=10
+	[ "$(sed -n 5p LOG)" = "80" ] && CHALLENGE=11
+	[ "$(sed -n 6p LOG)" = "workqueue.c" ] && CHALLENGE=12
+	[ "$(sed -n 7p LOG)" = "a3b94fcb097abdb897aa41d779a24f5a" ] && CHALLENGE=13
+	[ "$(sed -n 8p LOG)" = "129.74.160.230" ] && CHALLENGE=14
+	[ "$(sed -n 9p LOG)" = "34.193.237.201" ] && CHALLENGE=15
+	[ "$(sed -n 10p LOG)" = "12" ] && CHALLENGE=16
+	[ "$(sed -n 11p LOG)" = "917G" ] && CHALLENGE=17
+	[ -r CLA-${CLA_VERSION}.c ] && CHALLENGE=18
+    fi
+fi
+
+## Execute Latest Challenge
+
+eval challenge_$CHALLENGE
