@@ -175,7 +175,7 @@ use of some common Linux filters.
 
 # Challenge 09
 
-For this challenge, you are to search the "linux/maintainers" file for all the
+For this challenge, you are to search the "linux/MAINTAINERS" file for all the
 contributors to Linux that work at "microsoft".  Once you have found them all,
 *count* up all the "@microsoft.com" email addresses and put the *number* on the
 *fourth* line of the LOG file.
