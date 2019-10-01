@@ -15,7 +15,7 @@ challenge_00() {
 # Welcome to LUG's Command Line Adventure ($CLA_VERSION).
 
 In this journey through the *Linux command line interface*, you will work
-through a series of challenges that require you to utilize a few of common
+through a series of challenges that require you to utilize a few common
 command line utilities such as:
 
     cat, chmod, cp, curl, cut, du, find, gcc, grep, head, kill, ls, md5sum,
@@ -40,7 +40,7 @@ I am your *GUIDE* and will help you on the rest of your journey.  I see that
 you have discovered the *chmod* command and have made me executable.  
 
 Whenever you have completed a challenge, just run me again and I will guide you
-to the next step in your journal.
+to the next step in your journey.
 
 # Challenge 01
 
@@ -120,7 +120,7 @@ challenge_06() {
     guide_say <<EOF
 ${USER}, I find your persistence so *touching* :]
 
-Now that you how to create a file, you will probably also want to learn how to
+Now that you know how to create a file, you will probably also want to learn how to
 *edit* it.  That is, you will want to use a *text editor* to modify the
 contents of the file.
 
@@ -171,7 +171,7 @@ challenge_09() {
 Super job, ${USER}!
 
 Let's start examining and manipulating the contents of some files through the
-user of some common Linux filters.
+use of some common Linux filters.
 
 # Challenge 09
 
